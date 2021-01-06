@@ -8,9 +8,19 @@ const assert = require('assert')
  * HINT 2: Get the truthiness of a value by using a double bang (!!),
  *    or the untruthiness using a single bang (!)
  */
-
 const hasFalsyValue = obj => {
-};
+  const values = Object.values(obj)
+  for (let i=0; i<values.length; i++) {
+    if (typeof values[i] == 'object') {
+      return hasFalsyValue(values[i])
+    } else {
+      if (! values[i]) {
+        return true
+      } 
+    }
+  }  
+  return false
+}
 
 const falsyObj = {
   hi: "I am falsy somewhere...",
@@ -32,6 +42,5 @@ const truthyObj = {
     anotherTruthy: ";)"
   }
 };
-
 assert(hasFalsyValue(falsyObj) === true);
 assert(hasFalsyValue(truthyObj) === false);

@@ -4,15 +4,13 @@ variable, write out the template of your madlibs
 using string variables in the place of certain
 nouns, adjectives, and verbs */
 
-/* Variables, i.e.
-const noun1 = ______
-const verb1 = ______
 
-Change thses values to generate a different story
-*/
+const noun1 = 'popcorn'
+const verb1 = 'swimming'
+
 
 const story = `
-**replace this with your story using a template string**
+Billy likes to eat ${noun1} while ${verb1}.
 `
 
 console.log(story)
